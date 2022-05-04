@@ -23,7 +23,7 @@ app.use(express.static('website'));
 app.use(express.json());
 
 // Setup Server
-const port = 3000;
+const port = 8000;
 const listening = () => {
   console.log(`running on localhost: ${port} `);
 };
@@ -45,7 +45,7 @@ console.log(server);
 
 // app.get('/weather', async (req, res) => {
 //   const baseUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=`;
-//   const apiKey = 'cfd0cc9081ac7bf49eec60c019850b0f';
+//   const apiKey = 'cfd0cc';
 //   const fetchResponse = await fetch(baseUrl + apiKey);
 //     , {
 //   method: 'GET',

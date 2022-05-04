@@ -46,7 +46,7 @@ const generateBtn = document
     const callApi = async (lat, lon) => {
       // try {
       const baseUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=`;
-      const apiKey = 'cfd0cc9081ac7bf49eec60c019850b0f';
+      const apiKey = 'cfd0cc';
 
       const res = await fetch(baseUrl + apiKey);
       const data = await res.json();
