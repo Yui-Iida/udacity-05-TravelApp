@@ -1,8 +1,5 @@
 // Setup empty JS object to act as endpoint for all routes
-projectData = {};
-// const baseUrl =
-//   'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=';
-// const apiKey = '<your_api_key>&units=imperial';
+let projectData = {};
 
 // Require Express to run server and routes
 const express = require('express');
@@ -18,12 +15,12 @@ app.use(bodyParser.json());
 
 // Cors for cross origin allowance
 const cors = require('cors');
-const { json } = require('express/lib/response');
-// const req = require('express/lib/request');
+// const { json } = require('express/lib/response');
 app.use(cors());
 
 // Initialize the main project folder
 app.use(express.static('website'));
+app.use(express.json());
 
 // Setup Server
 const port = 3000;
@@ -46,21 +43,21 @@ console.log(server);
 // POST implementation
 /////////////////////////////////
 
-app.get('/weather', async (req, res) => {
-  const baseUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=`;
-  const apiKey = 'cfd0cc9081ac7bf49eec60c019850b0f';
-  const fetchResponse = await fetch(baseUrl + apiKey);
-  //     , {
-  //   method: 'GET',
-  //   credentials: 'same-origin',
+// app.get('/weather', async (req, res) => {
+//   const baseUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=`;
+//   const apiKey = 'cfd0cc9081ac7bf49eec60c019850b0f';
+//   const fetchResponse = await fetch(baseUrl + apiKey);
+//     , {
+//   method: 'GET',
+//   credentials: 'same-origin',
 
-  //   headers: {
-  //     'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com',
-  //     'x-rapidapi-key': apiKey,
-  //   },
-  //   body: JSON.stringify(res),
-  // }
+//   headers: {
+//     'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com',
+//     'x-rapidapi-key': apiKey,
+//   },
+//   body: JSON.stringify(res),
+// }
 
-  const json = await fetchResponse.json();
-  response.json(json);
-});
+//   const json = await fetchResponse.json();
+//   response.json(json);
+// });
