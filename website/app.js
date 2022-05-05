@@ -38,6 +38,10 @@ const generateBtn = document
       );
       const latlon = await googleMapUrl.json();
       console.log(latlon);
+
+      // 中身を空に戻したい
+      zipCode.contain = '';
+      feelingToday.value = '';
     };
 
     getLatLon(zipCode);
@@ -46,7 +50,8 @@ const generateBtn = document
     const callApi = async (lat, lon) => {
       // try {
       const baseUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=`;
-      const apiKey = 'cfd0cc';
+      const apiKey = 'cfd0cc9081ac7bf49eec60c019850b0f';
+      // apiKey　注意！
 
       const res = await fetch(baseUrl + apiKey);
       const data = await res.json();
