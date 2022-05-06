@@ -1,16 +1,19 @@
 'use strict';
 /* Global Variables */
-let zipCode = document.querySelector('#zip');
-let feelingToday = document.querySelector('.myInput');
+let zip = document.querySelector('#zip');
+let feelingToday = document.querySelector('#feelings');
 
 const date = document.querySelector('#date');
+const weather = document.querySelector('#weather');
 const tempreture = document.querySelector('#temp');
 const content = document.querySelector('#content');
 
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth() + '.' + d.getDate() + '.' + d.getFullYear();
-// console.log(newDate);
+let newDate = d.getMonth() + 1 + '.' + d.getDate() + '.' + d.getFullYear();
+console.log(newDate);
+
+let journalHistory = [];
 
 // get
 // app.get('/', function (req, res) {
@@ -25,41 +28,53 @@ const generateBtn = document
   .querySelector('#generate')
   .addEventListener('click', function (e) {
     e.preventDefault();
-    // console.log(zipCode.value);
-    // console.log(feelingToday.value);
 
+    // const entryHolder = document.querySelector('#entryHolder');
+    // const newEntry = document.createElement('div');
+    // newEntry.appendChild(entryHolder);
     date.innerHTML = newDate;
     content.innerHTML = feelingToday.value;
 
-    // zipcode to latlon
-    const getLatLon = async zipCode => {
-      const googleMapUrl = await fetch(
-        `http://maps.googleapis.com/maps/api/geocode/json?address=santa+cruz&components=postal_code:"+${zipCode}`
-      );
-      const latlon = await googleMapUrl.json();
-      console.log(latlon);
-
-      // 中身を空に戻したい
-      zipCode.contain = '';
-      feelingToday.value = '';
-    };
-
-    getLatLon(zipCode);
-
     // getWeather
-    const callApi = async (lat, lon) => {
-      // try {
-      const baseUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=`;
-      const apiKey = 'cfd0cc9081ac7bf49eec60c019850b0f';
-      // apiKey　注意！
+    const callApi = async zip => {
+      try {
+        const baseUrl = `https://api.openweathermap.org/data/2.5/weather?zip=${zip.value}&appid=`;
+        const apiKey = 'cfd0cc9081ac7bf49eec60c019850b0f';
+        // apiKey　注意！
 
-      const res = await fetch(baseUrl + apiKey);
-      const data = await res.json();
-      console.log(data);
-      tempreture.innerHTML =
-        Math.floor((data.main.temp - 273.15) * 10) / 10 + '&#8451';
+        const res = await fetch(baseUrl + apiKey);
+        const data = await res.json();
+        // console.log(data);
+        tempreture.innerHTML =
+          Math.floor((data.main.temp - 273.15) * 10) / 10 + '&#8451';
+
+        weather.innerHTML = data.weather[0].description;
+
+        let newJournal = {
+          date: newDate,
+          weather: `${weather.innerHTML}`,
+          tempreture: `${tempreture.innerHTML}`,
+          content: `${content.innerHTML}`,
+        };
+
+        journalHistory.push(newJournal);
+        const options = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(journalHistory),
+        };
+
+        const response = await fetch('/weather', options);
+        const allData = await response.json();
+        console.log(allData);
+      } catch (error) {
+        alert('Please enter correct input!');
+      }
     };
-    callApi(36.2048, 138.2529);
+    callApi(zip);
+    // zip ezamle => 94043
+    zip.value = '';
+    feelingToday.value = '';
   });
 
 //////////////////////////////

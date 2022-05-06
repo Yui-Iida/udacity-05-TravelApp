@@ -15,32 +15,34 @@ app.use(bodyParser.json());
 
 // Cors for cross origin allowance
 const cors = require('cors');
+const { response } = require('express');
 // const { json } = require('express/lib/response');
 app.use(cors());
 
 // Initialize the main project folder
 app.use(express.static('website'));
-// app.use(express.json());
-
-// Setup Server
-const port = 3000;
-const listening = () => {
-  console.log(`running on localhost: ${port} `);
-};
-const server = app.listen(port, listening);
-// console.log(server);
+app.use(express.json());
 
 // GET route
 app.get('/', (req, res) => {
-  res.send(projectData);
-  console.log(projectData);
+  res.send('home page');
 });
 
 // POST route
-app.post('/', (req, res) => {
-  res.send(projectData);
-  console.log(projectData);
+app.post('/weather', (req, res) => {
+  console.log(req.body);
+  // res.send(projectData);
+  res.json(req.body);
 });
+
+// Setup Server
+const port = 3000;
+
+app.listen(3000, console.log(`running on localhost: ${port} `));
+// const listening = () => {
+//   console.log(`running on localhost: ${port} `);
+// };
+// const server = app.listen(port, listening);
 
 // POST implementation
 /////////////////////////////////
