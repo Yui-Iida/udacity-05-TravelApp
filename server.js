@@ -23,6 +23,10 @@ app.use(cors());
 app.use(express.static('website'));
 app.use(express.json());
 
+// Setup Server
+const port = 3000;
+app.listen(3000, console.log(`running on localhost: ${port} `));
+
 // GET route
 app.get('/', (req, res) => {
   res.send('home page');
@@ -34,34 +38,3 @@ app.post('/weather', (req, res) => {
   // res.send(projectData);
   res.json(req.body);
 });
-
-// Setup Server
-const port = 3000;
-
-app.listen(3000, console.log(`running on localhost: ${port} `));
-// const listening = () => {
-//   console.log(`running on localhost: ${port} `);
-// };
-// const server = app.listen(port, listening);
-
-// POST implementation
-/////////////////////////////////
-
-// app.get('/weather', async (req, res) => {
-//   const baseUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=`;
-//   const apiKey = 'cfd0cc';
-//   const fetchResponse = await fetch(baseUrl + apiKey);
-//     , {
-//   method: 'GET',
-//   credentials: 'same-origin',
-
-//   headers: {
-//     'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com',
-//     'x-rapidapi-key': apiKey,
-//   },
-//   body: JSON.stringify(res),
-// }
-
-//   const json = await fetchResponse.json();
-//   response.json(json);
-// });

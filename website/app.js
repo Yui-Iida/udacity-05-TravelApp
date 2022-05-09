@@ -1,4 +1,6 @@
 'use strict';
+// require('dotenv').config();
+
 /* Global Variables */
 let zip = document.querySelector('#zip');
 let feelingToday = document.querySelector('#feelings');
@@ -15,15 +17,6 @@ console.log(newDate);
 
 let journalHistory = [];
 
-// get
-// app.get('/', function (req, res) {
-//   res.status(200).send('Hello world!');
-// });
-
-// app.listen(3000);
-
-// const generate = () => {
-
 const generateBtn = document
   .querySelector('#generate')
   .addEventListener('click', function (e) {
@@ -39,15 +32,16 @@ const generateBtn = document
     const callApi = async zip => {
       try {
         const baseUrl = `https://api.openweathermap.org/data/2.5/weather?zip=${zip.value}&appid=`;
-        const apiKey = 'cfd0cc9081ac7bf49eec60c019850b0f';
+        // const apiKey = process.env.API_KEY;
+        const apikey = 'cfd0cc9081ac7bf49eec60c019850b0f';
+        // console.log(apikey);
         // apiKey　注意！
 
-        const res = await fetch(baseUrl + apiKey);
+        const res = await fetch(baseUrl + apikey);
         const data = await res.json();
-        // console.log(data);
+        console.log(data);
         tempreture.innerHTML =
           Math.floor((data.main.temp - 273.15) * 10) / 10 + '&#8451';
-
         weather.innerHTML = data.weather[0].description;
 
         let newJournal = {
@@ -65,14 +59,21 @@ const generateBtn = document
         };
 
         const response = await fetch('/weather', options);
-        const allData = await response.json();
-        console.log(allData);
+        const allDatas = await response.json();
+        // console.log(allData);
+
+        const entryHolder = document.querySelector('#entryHolder');
+        for (allData of allDatas) {
+          const newEntry = document.createElement('div');
+          entryHolder.appendChild(newEntry);
+          newEntry.innerHTML = allData;
+        }
       } catch (error) {
-        alert('Please enter correct input!');
+        // alert('Something goes wrong!');
       }
     };
     callApi(zip);
-    // zip ezamle => 94043
+    // zip examle => 94043
     zip.value = '';
     feelingToday.value = '';
   });
