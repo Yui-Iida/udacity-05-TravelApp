@@ -19,5 +19,6 @@ What I have done is:
 ## Copyright
 
 All rights are reserved by Yui Iida.
+Background Photo by Gradienta(https://unsplash.com/@gradienta)
 
 Some styles and functions will be added in the future.
