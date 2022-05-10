@@ -1,5 +1,4 @@
 'use strict';
-// require('dotenv').config();
 
 /* Global Variables */
 let zip = document.querySelector('#zip');
@@ -9,6 +8,11 @@ const date = document.querySelector('#date');
 const weather = document.querySelector('#weather');
 const tempreture = document.querySelector('#temp');
 const content = document.querySelector('#content');
+
+const apiKey = '&appid=cfd0cc9081ac7bf49eec60c019850b0f&units=metric';
+const baseUrl = `https://api.openweathermap.org/data/2.5/weather?zip=`;
+// const apiKey = process.env.API_KEY;
+// require('dotenv').config();
 
 // Create a new date instance dynamically with JS
 let d = new Date();
@@ -31,17 +35,11 @@ const generateBtn = document
     // getWeather
     const callApi = async zip => {
       try {
-        const baseUrl = `https://api.openweathermap.org/data/2.5/weather?zip=${zip.value}&appid=`;
-        // const apiKey = process.env.API_KEY;
-        const apikey = 'cfd0cc9081ac7bf49eec60c019850b0f';
-        // console.log(apikey);
-        // apiKey　注意！
-
-        const res = await fetch(baseUrl + apikey);
+        const res = await fetch(baseUrl + zip.value + apiKey);
         const data = await res.json();
         console.log(data);
-        tempreture.innerHTML =
-          Math.floor((data.main.temp - 273.15) * 10) / 10 + '&#8451';
+        // tempreture.innerHTML = Math.floor((data.main.temp - 273.15) * 10) / 10;
+        tempreture.innerHTML = data.main.temp + '&#8451';
         weather.innerHTML = data.weather[0].description;
 
         let newJournal = {
