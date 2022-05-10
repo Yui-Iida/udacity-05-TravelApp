@@ -2,10 +2,6 @@
 
 ![スクリーンショット 2022-05-09 14 50 50](https://user-images.githubusercontent.com/92433326/167413523-fece5086-b32f-4674-8a64-65936fb685eb.jpg)
 
-<<<<<<< HEAD
-=======
-
->>>>>>> f87d6b782fc6547b4251b0b4c702a886d2fc1b88
 "Weather-Journal App Project" is the third project of front-end developer nanodegree program on udacity.
 
 ## Overview
