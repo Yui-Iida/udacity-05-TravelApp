@@ -4,6 +4,10 @@ let projectData = {};
 // Require Express to run server and routes
 const express = require('express');
 
+// // Configure dotenv package
+// require('dotenv').config();
+// const apiKey = `${process.env.API_KEY}`;
+
 // Start up an instance of app
 const app = express();
 
@@ -28,13 +32,14 @@ const port = 3000;
 app.listen(3000, console.log(`running on localhost: ${port} `));
 
 // GET route
-app.get('/', (req, res) => {
-  res.send('home page');
+app.get('/all', (req, res) => {
+  res.send(projectData);
 });
 
 // POST route
-app.post('/weather', (req, res) => {
-  console.log(req.body);
-  // res.send(projectData);
-  res.json(req.body);
+app.post('/add', async (req, res) => {
+  const body = await req.body;
+  projectData = body;
+  console.log(projectData);
+  res.send(projectData);
 });

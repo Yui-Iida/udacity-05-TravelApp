@@ -1,5 +1,7 @@
 'use strict';
 
+// const { response } = require('express');
+
 /* Global Variables */
 let zip = document.querySelector('#zip');
 let feelingToday = document.querySelector('#feelings');
@@ -26,76 +28,73 @@ const generateBtn = document
   .addEventListener('click', function (e) {
     e.preventDefault();
 
-    // const entryHolder = document.querySelector('#entryHolder');
-    // const newEntry = document.createElement('div');
-    // newEntry.appendChild(entryHolder);
-    date.innerHTML = newDate;
-    content.innerHTML = feelingToday.value;
-
-    // getWeather
-    const callApi = async zip => {
-      try {
-        const res = await fetch(baseUrl + zip.value + apiKey);
-        const data = await res.json();
-        console.log(data);
-        // tempreture.innerHTML = Math.floor((data.main.temp - 273.15) * 10) / 10;
-        tempreture.innerHTML = data.main.temp + '&#8451';
-        weather.innerHTML = data.weather[0].description;
-
-        let newJournal = {
-          date: newDate,
-          weather: `${weather.innerHTML}`,
-          tempreture: `${tempreture.innerHTML}`,
-          content: `${content.innerHTML}`,
-        };
-
-        journalHistory.push(newJournal);
-        const options = {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(journalHistory),
-        };
-
-        const response = await fetch('/weather', options);
-        const allDatas = await response.json();
-        // console.log(allData);
-
-        const entryHolder = document.querySelector('#entryHolder');
-        for (allData of allDatas) {
-          const newEntry = document.createElement('div');
-          entryHolder.appendChild(newEntry);
-          newEntry.innerHTML = allData;
-        }
-      } catch (error) {
-        // alert('Something goes wrong!');
-      }
-    };
-    callApi(zip);
-    // zip examle => 94043
-    zip.value = '';
-    feelingToday.value = '';
+    const url = baseUrl + zip.value + apiKey;
+    getWeather(url)
+      .then(data => newJournal(data))
+      .then(newdata => postData('/add', newdata))
+      .then(() => getData('/all'))
+      .then(data => updateUI(data));
   });
 
-//////////////////////////////
-// let lat = 36.2048;
-// let lon = 138.2529;
+const getWeather = async url => {
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
 
-//     const res = await fetch(baseUrl + apiKey, {
-//       method: 'GET',
-//       credentials: 'same-origin',
+    return data;
+  } catch (error) {
+    console.log('error:', error);
+  }
+};
 
-//       headers: {
-//         'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com',
-//         'x-rapidapi-key': apiKey,
-//       },
-//       body: JSON.stringify(),
-//     });
+let newJournal = async data => {
+  try {
+    const newData = {
+      date: newDate,
+      weather: data.weather[0].description,
+      tempreture: data.main.temp,
+      content: feelingToday.value,
+    };
+    // console.log(newData);
+    return newData;
+  } catch (error) {
+    console.log('error:', error);
+  }
+};
 
-//     const result = await res.json();
-//     console.log(result.weather);
-//   } catch (error) {
-//     console.log('error', error);
-//   }
-// };
+const postData = async (url = '', data = {}) => {
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    return response;
+  } catch (error) {
+    console.log('error:', error);
+  }
+};
 
-// callApi(36.2048, 138.2529);
+const getData = async url => {
+  const allData = await fetch(url);
+  try {
+    const res = await allData.json();
+    return res;
+  } catch (error) {
+    console.log('error:', error);
+  }
+};
+
+const updateUI = async data => {
+  const response = await data;
+  console.log(response);
+
+  date.innerHTML = response.date;
+  content.innerHTML = response.content;
+  tempreture.innerHTML = response.tempreture + '&#8451';
+  weather.innerHTML = response.weather;
+
+  zip.value = '';
+  feelingToday.value = '';
+};
