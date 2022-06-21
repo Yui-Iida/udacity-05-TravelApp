@@ -1,8 +1,6 @@
-# Weather-Journal App Project
+# Travel App Project
 
-![スクリーンショット 2022-05-09 14 50 50](https://user-images.githubusercontent.com/92433326/167413523-fece5086-b32f-4674-8a64-65936fb685eb.jpg)
-
-"Weather-Journal App Project" is the third project of front-end developer nanodegree program on udacity.
+"Travel App Project" is the final capstone project of front-end developer nanodegree program on udacity.
 
 ## Overview
 
@@ -18,6 +16,6 @@ What I have done is:
 ## Copyright
 
 All rights are reserved by Yui Iida.
-Background Photo by Gradienta(https://unsplash.com/@gradienta)
+<!-- Background Photo by Gradienta(https://unsplash.com/@gradienta) -->
 
 Some styles and functions will be added in the future.
