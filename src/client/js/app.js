@@ -1,5 +1,8 @@
 'use strict';
 
+
+////以下project3 のコード/////////////////////////////////////////////
+
 // const { response } = require('express');
 
 /* Global Variables */
@@ -11,7 +14,7 @@ const weather = document.querySelector('#weather');
 const tempreture = document.querySelector('#temp');
 const content = document.querySelector('#content');
 
-const apiKey = '&appid=cfd0cc9081ac7bf49eec60c019850b0f&units=metric';
+// const apiKey = '&appid=cfd0cc9081ac7bf49eec60c019850b0f&units=metric';
 const baseUrl = `https://api.openweathermap.org/data/2.5/weather?zip=`;
 // const apiKey = process.env.API_KEY;
 // require('dotenv').config();

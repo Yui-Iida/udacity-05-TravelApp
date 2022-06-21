@@ -5,7 +5,10 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node src/server/index.js",
+    "start:dev": "webpack serve",
+    "build-prod": "webpack --config webpack.prod.js",
+    "build-dev": "webpack-dev-server --config webpack.dev.js  --open"
   },
   "author": "Yui Iida",
   "license": "ISC",
@@ -15,8 +18,11 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "geonames": "^0.2.1",
+    "jest-fetch-mock": "^3.0.3",
     "node": "^17.7.2",
-    "uniq": "^1.0.1"
+    "uniq": "^1.0.1",
+    "webpack": "^5.73.0"
   },
   "repository": {
     "type": "git",
@@ -27,6 +33,17 @@
   },
   "homepage": "https://github.com/Yui-Iida/udacity-03-WeatherJournalApp#readme",
   "devDependencies": {
-    "nodemon": "^2.0.16"
+    "babel": "^6.23.0",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "file-loader": "^6.2.0",
+    "html-loader": "^3.1.2",
+    "html-webpack-plugin": "^5.5.0",
+    "node-sass": "^7.0.1",
+    "nodemon": "^2.0.16",
+    "sass-loader": "^13.0.0",
+    "style-loader": "^3.3.1",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.2"
   }
 }
