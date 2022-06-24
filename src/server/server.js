@@ -3,17 +3,17 @@ const exp = require('constants');
 const express = require('express');
 // Start up an instance of app
 const app = express();
-// Initialize the main project folder
-// app.use(express.static('../src'));
-app.use(express.static(__dirname, +'/src'));
-app.use(express.json());
 
-app.get('../client/views/index.html', function (req, res, next) {
-  res.sendFile(__dirname + '../client/views/index.html');
-});
+// app.get('../client/views/index.html', function (req, res, next) {
+//   res.sendFile(__dirname + '../client/views/index.html');
+// });
 // Setup Server
-const port = 3000;
-app.listen(3000, console.log(`running on localhost: ${port} `));
+const port = 8080;
+app.listen(8080, console.log(`running on localhost: ${port} `));
+
+// app.use(express.static(__dirname, +'/src'));
+app.use(express.static('dist'));
+app.use(express.json());
 
 const geonames = require('geonames');
 
@@ -39,9 +39,9 @@ const { response } = require('express');
 app.use(cors());
 
 // // GET route
-// app.get('/all', (req, res) => {
-//   res.send(projectData);
-// });
+app.get('/', (req, res) => {
+  res.sendFile('dist.index.thml');
+});
 
 // // POST route
 // app.post('/add', async (req, res) => {
