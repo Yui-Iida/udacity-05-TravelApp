@@ -1,5 +1,7 @@
 'use strict';
-
+let d = new Date();
+let newDate = d.getMonth() + 1 + '.' + d.getDate() + '.' + d.getFullYear();
+console.log(newDate);
 
 ////以下project3 のコード/////////////////////////////////////////////
 
@@ -20,9 +22,9 @@ const baseUrl = `https://api.openweathermap.org/data/2.5/weather?zip=`;
 // require('dotenv').config();
 
 // Create a new date instance dynamically with JS
-let d = new Date();
-let newDate = d.getMonth() + 1 + '.' + d.getDate() + '.' + d.getFullYear();
-console.log(newDate);
+// let d = new Date();
+// let newDate = d.getMonth() + 1 + '.' + d.getDate() + '.' + d.getFullYear();
+// console.log(newDate);
 
 let journalHistory = [];
 
