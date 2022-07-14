@@ -16,9 +16,10 @@ html {
 }
 
 h1 {
-  font-size: 80px;
+  font-size: 60px;
   color: white;
-  font-family: 'Playfair Display SC', serif;
+  font-family: 'DM Serif Display', serif;
+  letter-spacing: 3px;
   padding: 40px 0 0 40px;
 }
 
@@ -32,18 +33,24 @@ h2 {
   // position: fixed;
 
   background-color: rgba(255, 255, 255, 0.638);
-  margin: 100px 50px 0 auto;
+  margin: 100px 120px 0 auto;
   padding: 20px;
   // height: 300px;
-  width: 400px;
+  width: 430px;
   border-radius: 10px;
   // opacity: 80%;
 
   .search-title {
+    font-family: 'Times New Roman', Times, serif;
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
     line-height: 1.2;
     padding: 20px;
+
+    .font-italic {
+      // font-style: italic;
+      font-family: 'Times New Roman', Times, serif;
+    }
   }
 
   .box {
@@ -61,19 +68,28 @@ h2 {
       width: 250px;
       height: 40px;
       margin: 5px auto;
-      border: 0.5px solid rgb(152, 249, 26);
+      border: 0.5px solid rgb(96, 160, 255);
       outline: none;
       padding: 0 15px;
     }
   }
   .btn-submit {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+
     display: grid;
     padding: 5px 13px;
     margin: 20px auto 0 auto;
-    font-size: 20px;
+    font-size: 14px;
     background-color: white;
     border-radius: 6px;
     border: none;
+    // border: 0.5px solid rgb(96, 160, 255);
+    box-shadow: 0 3px 5px rgb(0 0 0 / 50%);
+  }
+  .btn-submit:hover {
+    box-shadow: none;
+    transform: scale(0.99, 0.99) translateY(2px);
   }
 }
 
@@ -86,4 +102,17 @@ footer {
   padding: 30px 0;
   position: absolute;
   bottom: 0;
+}
+
+// animation
+#typing::after {
+  content: '';
+  border-right: 2.3px solid;
+  animation: flashing 0.8s linear infinite;
+
+  @keyframes flashing {
+    0% {
+      opacity: 0;
+    }
+  }
 }
