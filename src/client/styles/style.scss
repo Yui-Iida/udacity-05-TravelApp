@@ -8,7 +8,7 @@ $color-blue: rgb(139, 201, 255);
   font-family: 'DM Serif Display', serif;
 }
 
-html {
+.background {
   background-image: url(https://source.unsplash.com/rknrvCrfS1k);
   background-repeat: no-repeat;
   background-size: 100%;
@@ -16,7 +16,7 @@ html {
 }
 
 h1 {
-  font-size: 60px;
+  font-size: 45px;
   color: white;
   font-family: 'DM Serif Display', serif;
   letter-spacing: 3px;
