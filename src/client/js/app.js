@@ -117,4 +117,18 @@ const typing = (element, sentence) => {
 
 typing('#typing', "Let's Discover Somewhere New.");
 
-export default typing();
+// export default typing();
+
+// やること…　minサイズを指定する、nputのcityを最後の?の後に入れて表示させる
+
+// const inputCity = document.querySelector('.background').value;
+function randomImg() {
+  document.querySelector(
+    '.background'
+    // ).style.background = `url(https://source.unsplash.com/random//?berlin)`;
+  ).style.background = `url(https://source.unsplash.com/random/?travel&scenery)`;
+}
+
+export default randomImg();
+
+// ${inputCity}
