@@ -107,6 +107,7 @@
 ////////////////////////////////////////////
 ////////////////////////////////////////////
 ////////////////////////////////////////////
+// 1番上のタイピング表示
 const typing = (element, sentence) => {
   [...sentence].forEach((character, index) => {
     setTimeout(() => {
@@ -120,15 +121,25 @@ typing('#typing', "Let's Discover Somewhere New.");
 // export default typing();
 
 // やること…　minサイズを指定する、nputのcityを最後の?の後に入れて表示させる
-
 // const inputCity = document.querySelector('.background').value;
 function randomImg() {
-  document.querySelector(
-    '.background'
-    // ).style.background = `url(https://source.unsplash.com/random//?berlin)`;
-  ).style.background = `url(https://source.unsplash.com/random/?travel&scenery)`;
+  const background = document.querySelector('.background');
+
+  // ).style.background = `url(https://source.unsplash.com/random/2500x1800/?kyoto)`;
+  background.style.background = `url(https://source.unsplash.com/random/?travel)`;
+  background.style.backgroundRepeat = 'no-repeat';
+  background.style.backgroundSize = '100vw';
 }
 
 export default randomImg();
 
 // ${inputCity}
+
+const btn = document.querySelector('.btn-submit');
+
+btn.addEventListener('click', () => {
+  const destination = document.querySelector('.destination').value;
+  const date = document.querySelector('.date').value;
+  console.log(destination);
+  console.log(date);
+});
