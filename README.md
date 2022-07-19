@@ -2,6 +2,8 @@
 
 "Travel App Project" is the final capstone project of front-end developer nanodegree program on udacity.
 
+![スクリーンショット 2022-07-19 10 48 18](https://user-images.githubusercontent.com/92433326/179729317-172971cc-2a75-43df-bc5d-f5dbf430d470.jpg)
+
 ## Overview
 
 This project requires you to create an asynchronous web app that uses Web API and user data to dynamically update the UI.
