@@ -112,7 +112,7 @@ const typing = (element, sentence) => {
   [...sentence].forEach((character, index) => {
     setTimeout(() => {
       document.querySelector(element).textContent += character;
-    }, 100 * ++index);
+    }, 150 * ++index);
   });
 };
 
@@ -122,24 +122,31 @@ typing('#typing', "Let's Discover Somewhere New.");
 
 // やること…　minサイズを指定する、nputのcityを最後の?の後に入れて表示させる
 // const inputCity = document.querySelector('.background').value;
-function randomImg() {
+function randomImg(input) {
   const background = document.querySelector('.background');
 
   // ).style.background = `url(https://source.unsplash.com/random/2500x1800/?kyoto)`;
-  background.style.background = `url(https://source.unsplash.com/random/?travel)`;
+  background.style.background = `url(https://source.unsplash.com/random/1200x1200/?${input})`;
   background.style.backgroundRepeat = 'no-repeat';
   background.style.backgroundSize = '100vw';
 }
 
-export default randomImg();
+randomImg('japan');
 
 // ${inputCity}
 
 const btn = document.querySelector('.btn-submit');
+const destination = document.querySelector('.destination');
+const date = document.querySelector('.date');
 
 btn.addEventListener('click', () => {
-  const destination = document.querySelector('.destination').value;
-  const date = document.querySelector('.date').value;
-  console.log(destination);
-  console.log(date);
+  console.log(destination.value);
+  console.log(date.value);
+
+  const inputDestination = destination.value;
+  // console.log(typeof inputDestination);
+  randomImg(inputDestination);
+
+  // 日付がリセットできない
+  document.querySelector('.input').value = '';
 });
