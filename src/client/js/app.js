@@ -133,20 +133,59 @@ function randomImg(input) {
 
 randomImg('japan');
 
-// ${inputCity}
-
 const btn = document.querySelector('.btn-submit');
 const destination = document.querySelector('.destination');
 const date = document.querySelector('.date');
+// const inputDestination = destination.value;
+const resultBox = document.querySelector('.result-box');
+const dateToGo = document.querySelector('.date-to-go');
+const newDestination = document.querySelector('.result-destination');
+const newWeather = document.querySelector('.result-weather');
+
+let d = new Date();
+
+// To get the weather (by weather app)
+const apiKey = '&appid=cfd0cc9081ac7bf49eec60c019850b0f&units=metric';
+// const baseUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputDestination}`;
+const baseUrl = `https://api.openweathermap.org/data/2.5/weather?q=`;
 
 btn.addEventListener('click', () => {
   console.log(destination.value);
-  console.log(date.value);
+
+  const inputDate = new Date(date.value.toLocaleString());
+  const leavingDate = inputDate.getTime();
+  const today = d.getTime();
+  const leftDay = Math.floor((leavingDate - today) / (24 * 60 * 60 * 1000)) + 1;
+
+  console.log(today);
+  console.log(inputDate);
+  console.log(leftDay);
 
   const inputDestination = destination.value;
-  // console.log(typeof inputDestination);
+  const url = baseUrl + inputDestination + apiKey;
+  getWeather(url);
   randomImg(inputDestination);
+
+  resultBox.style.display = 'block';
+  dateToGo.innerHTML = `${leftDay} days to go to ${inputDestination}!`;
+  newDestination.innerHTML = `${inputDestination}`;
+
+  // newWeather.innerHTML =
 
   // 日付がリセットできない
   document.querySelector('.input').value = '';
 });
+
+const getWeather = async url => {
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    console.log(data);
+    newWeather.innerHTML = `${data.weather[0].description}, ${data.main.temp}&#8451`;
+    return data;
+  } catch (error) {
+    console.log('error:', error);
+  }
+};
+
+// 表示させるもの　目的地の天気、今の場所との時差、残り日数
