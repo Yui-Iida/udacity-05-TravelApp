@@ -2,7 +2,7 @@
 
 "Travel App Project" is the final capstone project of front-end developer nanodegree program on udacity.
 
-![スクリーンショット 2022-07-19 10 48 18](https://user-images.githubusercontent.com/92433326/179729317-172971cc-2a75-43df-bc5d-f5dbf430d470.jpg)
+![スクリーンショット 2022-07-20 15 29 06](https://user-images.githubusercontent.com/92433326/179996398-91a3c090-a316-4557-bc3c-6e788fafc383.jpg)
 
 ## Overview
 
