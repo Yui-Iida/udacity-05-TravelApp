@@ -68,11 +68,11 @@ app.get('/', (req, res) => {
 //   res.send(projectData);
 // });
 
-app.post('/add', (req, res) => {
-  let inputData = {
-    input: req.body,
-  };
+// app.post('/add', (req, res) => {
+//   let inputData = {
+//     input: req.body,
+//   };
 
-  console.log(`User destination input: ${req.destination.value}`);
-  const geonamesAPI = `http://api.geonames.org/searchJSON?name=${req.body.destination.value}&maxRows=1&username=${process.env.GEONAMES_USER}`;
-});
+//   console.log(`User destination input: ${req.destination.value}`);
+//   const geonamesAPI = `http://api.geonames.org/searchJSON?name=${req.body.destination.value}&maxRows=1&username=${process.env.GEONAMES_USER}`;
+// });
