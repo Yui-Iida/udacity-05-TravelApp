@@ -141,6 +141,7 @@ const resultBox = document.querySelector('.result-box');
 const dateToGo = document.querySelector('.date-to-go');
 const newDestination = document.querySelector('.result-destination');
 const newWeather = document.querySelector('.result-weather');
+const btnAddComment = document.querySelector('.btn-add-comment');
 
 let d = new Date();
 
@@ -187,5 +188,15 @@ const getWeather = async url => {
     console.log('error:', error);
   }
 };
+
+btnAddComment.addEventListener('click', () => {
+  const addCommentInput = document.querySelector('.add-comment');
+  const comment = document.querySelector('.show-comment');
+  console.log(`Add Comment: ${addCommentInput}`);
+
+  comment.innerHTML = `Comment: ${addCommentInput.value}`;
+  addCommentInput.style.display = 'none';
+  btnAddComment.style.display = 'none';
+});
 
 // 表示させるもの　目的地の天気、今の場所との時差、残り日数
