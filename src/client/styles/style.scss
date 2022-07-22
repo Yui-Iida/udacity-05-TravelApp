@@ -33,7 +33,7 @@ h2 {
   // position: fixed;
 
   background-color: rgba(255, 255, 255, 0.638);
-  margin: 100px 120px 0 auto;
+  margin: 100px 110px 0 auto;
   padding: 20px;
   // height: 300px;
   width: 430px;
@@ -146,16 +146,19 @@ h2 {
 
   .add-comment {
     display: block;
+    font-size: 20px;
+    font-family: sans-serif;
     height: 100px;
     width: 80%;
     margin: 10px auto;
+    padding: 5px;
   }
 
   .show-comment {
     display: flex;
     justify-content: flex-start;
     // margin-left: 20px;
-    margin-left: 25px;
+    // margin-left: 25px;
   }
 }
 
