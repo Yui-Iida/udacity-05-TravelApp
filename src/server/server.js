@@ -12,8 +12,11 @@ app.use(cors());
 // });
 
 // Setup Server
-const port = 8080;
-app.listen(8080, console.log(`running on localhost: ${port} `));
+// const port = 8080;
+// app.listen(8080, console.log(`running on localhost: ${port} `));
+
+// for Heroku
+app.listen(process.env.PORT || 5000);
 
 // app.use(express.static(__dirname, +'/src'));
 app.use(express.static('dist'));
