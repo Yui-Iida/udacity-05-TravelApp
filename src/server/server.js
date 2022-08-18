@@ -22,19 +22,19 @@ app.listen(process.env.PORT || 5000);
 app.use(express.static('dist'));
 app.use(express.json());
 
-var geonames = require('geonames-stream'),
-  request = require('request'),
-  through = require('through2');
+// const geonames = require('geonames-stream'),
+//   request = require('request'),
+//   through = require('through2');
 
-request
-  .get('http://download.geonames.org/export/dump/NZ.zip')
-  .pipe(geonames.pipeline)
-  .pipe(
-    through.obj(function (data, enc, next) {
-      console.log(data._id, data.name, data.population);
-      next();
-    })
-  );
+// request
+//   .get('http://download.geonames.org/export/dump/NZ.zip')
+//   .pipe(geonames.pipeline)
+//   .pipe(
+//     through.obj(function (data, enc, next) {
+//       console.log(data._id, data.name, data.population);
+//       next();
+//     })
+//   );
 
 ////以下project3 のコード/////////////////////////////////////////////
 
