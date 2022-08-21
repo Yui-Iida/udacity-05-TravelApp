@@ -80,5 +80,5 @@ app.get('/', (req, res) => {
 //   const geonamesAPI = `http://api.geonames.org/searchJSON?name=${req.body.destination.value}&maxRows=1&username=${process.env.GEONAMES_USER}`;
 // });
 
-process.env.HEROKUAPI;
-process.env.URL;
+// process.env.HEROKUAPI;
+// process.env.URL;
