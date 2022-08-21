@@ -79,3 +79,6 @@ app.get('/', (req, res) => {
 //   console.log(`User destination input: ${req.destination.value}`);
 //   const geonamesAPI = `http://api.geonames.org/searchJSON?name=${req.body.destination.value}&maxRows=1&username=${process.env.GEONAMES_USER}`;
 // });
+
+process.env.HEROKUAPI;
+process.env.URL;
