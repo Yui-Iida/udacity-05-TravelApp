@@ -1,3 +1,4 @@
+const path = require('path');
 const fetch = require('node-fetch');
 
 // Require Express to run server and routes
@@ -33,6 +34,7 @@ const { response } = require('express');
 app.get('/', (req, res) => {
   // res.sendFile('dist.index.html');
   // res.sendFile('/src/client/views/index.html');
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 // for Heroku
