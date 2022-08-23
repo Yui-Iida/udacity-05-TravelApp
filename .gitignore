@@ -3,4 +3,5 @@ node_modules
 .vscode
 .prettierrc
 favicon-32x32.png
-package copy.json
+package copy.jsonnode_modules
+npm-debug.log
