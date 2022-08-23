@@ -32,9 +32,11 @@ const { response } = require('express');
 
 // // GET route
 app.get('/', (req, res) => {
+  res.sendFile('dist/index.thml');
   // res.sendFile('index.html');
-  res.sendFile('/app/src/client/views/index.html');
-  // res.sendFile(path.join(__dirname, 'server.js'));
+  // res.sendFile('/app/src/client/views/index.html');
+  // res.sendFile(path.join(__dirname, 'index.js'));
+  // res.sendFile(path.join(__dirname, 'dist', 'index.html'));
   // res.sendFile(__dirname);
 });
 

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Travel App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Playfair+Display+SC:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link rel="icon" href="../../../favicon-32x32.png" /> -->
+
+    <link rel="stylesheet/scss" href="../styles/style.scss" text="texr/css" />
+    <!-- <link href="../styles/style.scss" /> -->
+  <script defer src="main.js"></script></head>
+  <body>
+    <div class="background">
+      <h1 id="typing"></h1>
+      <!-- <h2>Let's discover the world!</h2> -->
+      <section class="search-box">
+        <p class="search-title">
+          <span class="font-italic">Where & When</span> you want to go?
+        </p>
+
+        <div class="box">
+          <!-- <form name="sampleform2"> -->
+          <!-- <p class="box-question">Where?</p> -->
+          <input class="destination input" placeholder="Which city?" />
+          <!-- <p class="box-question">When?</p> -->
+          <input class="date input" type="date" placeholder="When?" />
+        </div>
+        <button class="btn-submit">Add to My Trip</button>
+      </section>
+      <!-- </form> -->
+
+      <section class="result-box">
+        <p class="date-to-go"></p>
+        <div class="flex">
+          <p class="result-title">Next Destination:</p>
+          <p class="result-destination"></p>
+        </div>
+
+        <div class="flex">
+          <p class="result-title">Weather Now:</p>
+          <p class="result-weather"></p>
+        </div>
+
+        <textarea type="text" class="add-comment"></textarea>
+        <button class="btn-add-comment">Add Comment</button>
+        <p class="show-comment"></p>
+      </section>
+    </div>
+
+    <footer>
+      <p class="copyright">
+        Copyright &copy; <span class="year">2022 </span> by Yui Iida. All rights
+        reserved.
+      </p>
+    </footer>
+
+    <script src="../js/app.js" type="module"></script>
+  </body>
+</html>
