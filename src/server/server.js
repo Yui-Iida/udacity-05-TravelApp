@@ -5,7 +5,7 @@ const fetch = require('node-fetch');
 const express = require('express');
 // Start up an instance of app
 const app = express();
-app.use(cors());
+// app.use(cors());
 
 // for Heroku
 app.listen(process.env.PORT || 5000);
@@ -33,5 +33,6 @@ app.use(cors());
 
 // // GET route
 app.get('/', (req, res) => {
-  res.sendFile('dist.index.thml');
+  res.sendFile('dist.index.html');
+  // res.sendFile(path.join(__dirname, '../client/views', 'index.html'));
 });
