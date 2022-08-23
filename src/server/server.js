@@ -35,5 +35,5 @@ const { response } = require('express');
 // // GET route
 app.get('/', (req, res) => {
   // res.sendFile('dist.index.html');
-  res.sendFile(path.join(__dirname + '/src/client/views/index.html'));
+  res.sendFile(__dirname + '/src/client/views/index.html');
 });
