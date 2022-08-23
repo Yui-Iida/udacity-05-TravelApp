@@ -10,9 +10,6 @@ const app = express();
 const cors = require('cors');
 app.use(cors());
 
-// for Heroku
-app.listen(process.env.PORT || 5000);
-
 // app.use(express.static(__dirname, +'/src'));
 app.use(express.static('dist'));
 app.use(express.json());
@@ -37,3 +34,6 @@ app.get('/', (req, res) => {
   // res.sendFile('dist.index.html');
   // res.sendFile('/src/client/views/index.html');
 });
+
+// for Heroku
+app.listen(process.env.PORT || 5000);
