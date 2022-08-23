@@ -33,7 +33,7 @@ const { response } = require('express');
 // app.use(cors());
 
 // // GET route
-app.get('/', (req, res) => {
-  // res.sendFile('dist.index.html');
-  res.sendFile('/src/client/views/index.html');
-});
+// app.get('/', (req, res) => {
+//   // res.sendFile('dist.index.html');
+//   res.sendFile('/src/client/views/index.html');
+// });
