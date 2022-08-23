@@ -5,7 +5,10 @@ const fetch = require('node-fetch');
 const express = require('express');
 // Start up an instance of app
 const app = express();
-// app.use(cors());
+
+// // Cors for cross origin allowance
+const cors = require('cors');
+app.use(cors());
 
 // for Heroku
 app.listen(process.env.PORT || 5000);
@@ -25,11 +28,9 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// // Cors for cross origin allowance
-const cors = require('cors');
 const { response } = require('express');
 // const { json } = require('express/lib/response');
-app.use(cors());
+// app.use(cors());
 
 // // GET route
 app.get('/', (req, res) => {
