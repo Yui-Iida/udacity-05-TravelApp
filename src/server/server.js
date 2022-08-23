@@ -33,7 +33,7 @@ const { response } = require('express');
 // // GET route
 app.get('/', (req, res) => {
   // res.sendFile('index.html');
-  res.sendFile('/app//src/client/views/index.html');
+  res.sendFile('/app/src/client/views/index.html');
   // res.sendFile(path.join(__dirname, 'server.js'));
   // res.sendFile(__dirname);
 });
