@@ -34,6 +34,6 @@ const { response } = require('express');
 
 // // GET route
 app.get('/', (req, res) => {
-  res.sendFile('dist.index.html');
-  // res.sendFile(path.join(__dirname, '../client/views', 'index.html'));
+  // res.sendFile('dist.index.html');
+  res.sendFile(path.join(__dirname, '../client/views', 'index.html'));
 });
